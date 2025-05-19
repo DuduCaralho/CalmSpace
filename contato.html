@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contato - CalmSpace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #D3E8DA; font-family: 'Montserrat', Arial, sans-serif; color: #23423A; }
+    header { background: #B8DBC9; padding: 22px 0 12px 0; text-align: center; border-bottom: 2px solid #9DCEB7; }
+    .logo { font-family: 'Pacifico', cursive; font-size: 2rem; color: #23423A; }
+    nav { margin-top: 8px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    nav a { color: #23423A; background: #ABD5C0; text-decoration: none; padding: 7px 15px; border-radius: 18px; font-weight: 600; transition: background 0.3s; }
+    nav a:hover, nav a.active { background: #6DA89B; color: #fff; }
+    main { max-width: 700px; margin: 0 auto; padding: 36px 12px; }
+    h2 { color: #23423A; font-family: 'Pacifico', cursive; font-size: 1.7rem; }
+    form { background: #B8DBC9; border-radius: 14px; padding: 20px; box-shadow: 0 2px 8px #b8dbc955; }
+    label { display: block; margin-bottom: 6px; font-weight: 600; }
+    input, textarea { width: 100%; border-radius: 10px; border: 1px solid #ABD5C0; padding: 8px; font-size: 1rem; background: #fff; color: #23423A; margin-bottom: 14px; }
+    textarea { min-height: 70px; resize: vertical; }
+    button { background: #9DCEB7; color: #23423A; border: none; border-radius: 18px; padding: 10px 28px; font-weight: 600; font-size: 1.05rem; box-shadow: 0 2px 8px #b8dbc955; transition: background 0.3s, color 0.3s; }
+    button:hover { background: #6DA89B; color: #fff; }
+    .info { margin-top: 18px; color: #4a6d5c; font-size: 1.03rem; }
+    footer { background: #B8DBC9; text-align: center; padding: 14px; color: #4a6d5c; font-size: 0.98rem; border-top: 1px solid #9DCEB7; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo">CalmSpace</span>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="diario.html">Diário IA</a>
+      <a href="comunidade.html">Comunidade</a>
+      <a href="recursos.html">Recursos</a>
+      <a href="contato.html" class="active">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Fale com a equipe CalmSpace</h2>
+    <form onsubmit="return enviarContato(event)">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" required>
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" required>
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+    <div class="info">
+      Ou envie sugestões e dúvidas para <b>contato@calmspace.com</b><br>
+      <b>Em caso de emergência, ligue 188 (CVV).</b>
+    </div>
+  </main>
+  <footer>
+    Feito por Eduardo Finger Bohn &copy; 2025 CalmSpace
+  </footer>
+  <script>
+    function enviarContato(event) {
+      event.preventDefault();
+      alert('Mensagem enviada! Obrigado pelo contato.');
+      document.querySelector('form').reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
