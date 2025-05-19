@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diário com IA - CalmSpace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #D3E8DA; font-family: 'Montserrat', Arial, sans-serif; color: #23423A; }
+    header { background: #B8DBC9; padding: 22px 0 12px 0; text-align: center; border-bottom: 2px solid #9DCEB7; }
+    .logo { font-family: 'Pacifico', cursive; font-size: 2rem; color: #23423A; }
+    nav { margin-top: 8px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    nav a { color: #23423A; background: #ABD5C0; text-decoration: none; padding: 7px 15px; border-radius: 18px; font-weight: 600; transition: background 0.3s; }
+    nav a:hover, nav a.active { background: #6DA89B; color: #fff; }
+    main { max-width: 700px; margin: 0 auto; padding: 36px 12px; }
+    h2 { color: #23423A; font-family: 'Pacifico', cursive; font-size: 1.7rem; }
+    .box { background: #B8DBC9; border-radius: 14px; padding: 20px; margin-bottom: 28px; box-shadow: 0 2px 8px #b8dbc955; }
+    .ia-info { color: #23423A; font-size: 1.08rem; margin-bottom: 18px; }
+    .diary-form textarea { width: 100%; min-height: 90px; border-radius: 10px; border: 1px solid #ABD5C0; padding: 10px; font-size: 1rem; background: #D3E8DA; color: #23423A; resize: vertical; }
+    .diary-form button { margin-top: 10px; background: #9DCEB7; color: #23423A; border: none; border-radius: 18px; padding: 10px 28px; font-weight: 600; font-size: 1.05rem; box-shadow: 0 2px 8px #b8dbc955; transition: background 0.3s, color 0.3s; }
+    .diary-form button:hover { background: #6DA89B; color: #fff; }
+    .ia-alert { margin-top: 18px; background: #fff; color: #23423A; border-radius: 10px; padding: 12px; border: 1px solid #9DCEB7; display: none; }
+    footer { background: #B8DBC9; text-align: center; padding: 14px; color: #4a6d5c; font-size: 0.98rem; border-top: 1px solid #9DCEB7; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo">CalmSpace</span>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="suporte.html">Suporte</a>
+      <a href="diario.html" class="active">Diário IA</a>
+      <a href="comunidade.html">Comunidade</a>
+      <a href="recursos.html">Recursos</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+  <main>
+    <h2>Diário Pessoal com Inteligência Artificial</h2>
+    <div class="box">
+      <div class="ia-info">
+        Registre seus sentimentos e pensamentos. Nossa IA identifica padrões de humor, alerta sobre riscos e sugere cuidados preventivos.
+      </div>
+      <form class="diary-form" onsubmit="return analisarEntrada(event)">
+        <textarea id="entradaDiario" placeholder="Como você está se sentindo hoje?"></textarea>
+        <button type="submit">Registrar</button>
+      </form>
+      <div id="iaAlert" class="ia-alert"></div>
+    </div>
+  </main>
+  <footer>
+    Feito por Eduardo Finger Bohn &copy; 2025 CalmSpace
+  </footer>
+  <script>
+    function analisarEntrada(event) {
+      event.preventDefault();
+      const texto = document.getElementById('entradaDiario').value.toLowerCase();
+      const iaAlert = document.getElementById('iaAlert');
+      let mensagem = '';
+      if (texto.includes('triste') || texto.includes('ansioso') || texto.includes('deprimido') || texto.includes('cansado')) {
+        mensagem = 'Percebemos que você está passando por um momento difícil. Que tal conversar com alguém no suporte ou tentar uma atividade relaxante?';
+      } else if (texto.includes('feliz') || texto.includes('animado') || texto.includes('grato')) {
+        mensagem = 'Que bom ver sentimentos positivos! Continue registrando seus dias e cuidando de si!';
+      } else {
+        mensagem = 'Seu registro foi salvo. Continue acompanhando seu humor diariamente!';
+      }
+      iaAlert.textContent = mensagem;
+      iaAlert.style.display = 'block';
+      document.getElementById('entradaDiario').value = '';
+      return false;
+    }
+  </script>
+</body>
+</html>
