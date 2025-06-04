@@ -4,20 +4,96 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recursos - CalmSpace</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    body { margin: 0; background: #D3E8DA; font-family: 'Montserrat', Arial, sans-serif; color: #23423A; }
-    header { background: #B8DBC9; padding: 22px 0 12px 0; text-align: center; border-bottom: 2px solid #9DCEB7; }
-    .logo { font-family: 'Pacifico', cursive; font-size: 2rem; color: #23423A; }
-    nav { margin-top: 8px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    nav a { color: #23423A; background: #ABD5C0; text-decoration: none; padding: 7px 15px; border-radius: 18px; font-weight: 600; transition: background 0.3s; }
-    nav a:hover, nav a.active { background: #6DA89B; color: #fff; }
-    main { max-width: 700px; margin: 0 auto; padding: 36px 12px; }
-    h2 { color: #23423A; font-family: 'Pacifico', cursive; font-size: 1.7rem; }
-    .box { background: #B8DBC9; border-radius: 14px; padding: 20px; margin-bottom: 28px; box-shadow: 0 2px 8px #b8dbc955; }
-    ul { margin-bottom: 0; }
-    li { margin-bottom: 10px; }
-    footer { background: #B8DBC9; text-align: center; padding: 14px; color: #4a6d5c; font-size: 0.98rem; border-top: 1px solid #9DCEB7; }
+    body {
+      margin: 0;
+      background: #D3E8DA;
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: #23423A;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background: #B8DBC9;
+      padding: 22px 0 12px;
+      text-align: center;
+      border-bottom: 2px solid #9DCEB7;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.2rem;
+      color: #23423A;
+      user-select: none;
+    }
+    nav {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: #23423A;
+      background: #ABD5C0;
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: 22px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      user-select: none;
+      box-shadow: 0 2px 8px #b8dbc955;
+    }
+    nav a:hover,
+    nav a.active {
+      background: #4E8D7C;
+      color: #fff;
+    }
+    main {
+      flex: 1;
+      max-width: 720px;
+      margin: 100px auto 40px;
+      padding: 0 16px;
+    }
+    h2 {
+      color: #23423A;
+      font-family: 'Pacifico', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 24px;
+      user-select: none;
+    }
+    .box {
+      background: #B8DBC9;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 2px 10px #b8dbc955;
+    }
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+    li {
+      margin-bottom: 14px;
+      user-select: none;
+    }
+    footer {
+      background: #B8DBC9;
+      text-align: center;
+      padding: 18px;
+      color: #4a6d5c;
+      font-size: 1rem;
+      border-top: 1px solid #9DCEB7;
+      user-select: none;
+    }
   </style>
 </head>
 <body>
@@ -29,13 +105,13 @@
       <a href="suporte.html">Suporte</a>
       <a href="diario.html">Diário IA</a>
       <a href="comunidade.html">Comunidade</a>
-      <a href="recursos.html" class="active">Recursos</a>
+      <a href="recursos.html" class="active" aria-current="page">Recursos</a>
       <a href="contato.html">Contato</a>
     </nav>
   </header>
   <main>
     <h2>Recursos e Dicas para Bem-Estar</h2>
-    <div class="box">
+    <section class="box" aria-label="Lista de recursos para bem-estar">
       <ul>
         <li><strong>Meditação guiada:</strong> Experimente apps como Headspace ou Insight Timer.</li>
         <li><strong>Atividades físicas:</strong> Caminhe, dance ou faça alongamentos leves.</li>
@@ -44,7 +120,7 @@
         <li><strong>Limite de redes sociais:</strong> Reserve horários específicos para uso.</li>
         <li><strong>Busque ajuda profissional:</strong> Em caso de crise, procure um psicólogo ou CVV (188).</li>
       </ul>
-    </div>
+    </section>
   </main>
   <footer>
     Feito por Eduardo Finger Bohn &copy; 2025 CalmSpace
