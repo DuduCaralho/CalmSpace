@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CalmSpace - Bem-vindo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
       --cor-fundo: #D3E8DA;
@@ -15,11 +15,16 @@
       --cor-texto: #23423A;
       --cor-titulo: #23423A;
       --cor-botao: #9DCEB7;
-      --cor-botao-hover: #6DA89B;
+      --cor-botao-hover: #4E8D7C;
+      --sombra-botao: rgba(157, 206, 183, 0.6);
+      --radius: 30px;
+    }
+    * {
+      box-sizing: border-box;
     }
     body {
       margin: 0;
-      background: linear-gradient(120deg, var(--cor-fundo) 60%, var(--cor-destaque4) 100%);
+      background: linear-gradient(135deg, var(--cor-fundo) 50%, var(--cor-destaque4) 100%);
       font-family: 'Montserrat', Arial, sans-serif;
       color: var(--cor-texto);
       min-height: 100vh;
@@ -27,122 +32,170 @@
       flex-direction: column;
     }
     header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
       background: var(--cor-destaque1);
-      padding: 30px 0 20px 0;
+      padding: 18px 0 14px;
       text-align: center;
-      border-bottom: 2px solid var(--cor-destaque2);
+      border-bottom: 3px solid var(--cor-destaque2);
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
     .logo {
       font-family: 'Pacifico', cursive;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: var(--cor-titulo);
-      letter-spacing: 2px;
-      margin-bottom: 10px;
-      display: block;
+      letter-spacing: 3px;
+      margin-bottom: 6px;
+      user-select: none;
+    }
+    .subtitulo {
+      font-size: 1.1rem;
+      color: #4a6d5c;
+      font-weight: 600;
+      user-select: none;
     }
     nav {
-      margin-top: 10px;
+      margin-top: 8px;
       display: flex;
       justify-content: center;
-      gap: 18px;
+      gap: 20px;
       flex-wrap: wrap;
     }
     nav a {
       color: var(--cor-texto);
       background: var(--cor-destaque3);
       text-decoration: none;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-weight: 600;
-      transition: background 0.3s, color 0.3s;
+      padding: 10px 24px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
+      box-shadow: 0 2px 8px var(--sombra-botao);
     }
-    nav a:hover, nav a.active {
+    nav a:hover,
+    nav a.active {
       background: var(--cor-botao-hover);
       color: #fff;
     }
     main {
       flex: 1;
-      padding: 40px 10px 30px 10px;
-      max-width: 680px;
+      padding: 140px 20px 60px;
+      max-width: 720px;
       margin: 0 auto;
       text-align: center;
     }
     .slogan {
-      font-size: 1.3rem;
-      margin-bottom: 18px;
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 28px;
       color: var(--cor-titulo);
-      font-weight: 600;
+      line-height: 1.3;
+      user-select: none;
+    }
+    p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 32px;
+      line-height: 1.5;
+      color: var(--cor-texto);
     }
     .cta {
-      margin-top: 22px;
       display: flex;
-      gap: 16px;
+      gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
     }
     .cta a {
       background: var(--cor-botao);
       color: var(--cor-texto);
-      border: none;
-      border-radius: 25px;
-      padding: 12px 32px;
-      font-size: 1.1rem;
-      font-weight: 600;
+      border-radius: var(--radius);
+      padding: 14px 38px;
+      font-size: 1.2rem;
+      font-weight: 700;
       text-decoration: none;
-      box-shadow: 0 2px 8px #b8dbc955;
-      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 4px 12px var(--sombra-botao);
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
     }
     .cta a:hover {
       background: var(--cor-botao-hover);
       color: #fff;
     }
     .decor {
-      position: absolute;
+      position: fixed;
       pointer-events: none;
       z-index: 0;
+      opacity: 0.12;
+      user-select: none;
+      transition: opacity 0.3s ease;
     }
     .decor.top-left {
-      top: 0; left: 0;
-      width: 160px;
+      top: 10px; left: 10px;
+      width: 180px;
     }
     .decor.top-right {
-      top: 0; right: 0;
-      width: 120px;
+      top: 10px; right: 10px;
+      width: 140px;
+      transform: scaleX(-1);
     }
     .decor.bottom-left {
-      bottom: 0; left: 0;
-      width: 110px;
+      bottom: 10px; left: 10px;
+      width: 130px;
+      transform: scaleY(-1);
     }
     .decor.bottom-right {
-      bottom: 0; right: 0;
-      width: 150px;
+      bottom: 10px; right: 10px;
+      width: 170px;
+      transform: scale(-1, -1);
     }
     footer {
       background: var(--cor-destaque1);
       text-align: center;
       padding: 18px;
       color: #4a6d5c;
-      font-size: 0.98rem;
+      font-size: 1rem;
       border-top: 1px solid var(--cor-destaque2);
+      user-select: none;
     }
     @media (max-width: 600px) {
-      header { padding: 18px 0 14px 0; }
-      .logo { font-size: 1.7rem; }
-      main { padding: 24px 6px 16px 6px; }
-      .cta a { padding: 10px 18px; font-size: 1rem; }
+      header {
+        padding: 14px 0 12px;
+      }
+      .logo {
+        font-size: 1.9rem;
+      }
+      .subtitulo {
+        font-size: 1rem;
+      }
+      main {
+        padding: 120px 15px 40px;
+      }
+      .slogan {
+        font-size: 1.4rem;
+      }
+      .cta a {
+        padding: 12px 28px;
+        font-size: 1rem;
+      }
+      .decor.top-left { width: 120px; }
+      .decor.top-right { width: 100px; }
+      .decor.bottom-left { width: 90px; }
+      .decor.bottom-right { width: 110px; }
     }
   </style>
 </head>
 <body>
-  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor top-left">
-  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor top-right" style="transform:scaleX(-1);">
-  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor bottom-left" style="transform:scaleY(-1);">
-  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor bottom-right" style="transform:scale(-1,-1);">
+  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor top-left" />
+  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor top-right" />
+  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor bottom-left" />
+  <img src="https://pplx-res.cloudinary.com/image/private/user_uploads/66935056/7110b787-5c4d-4cea-a38a-c9316af3f1a2/image.jpg" alt="Decoração CalmSpace" class="decor bottom-right" />
   <header>
     <span class="logo">CalmSpace</span>
-    <div style="font-size:1.1rem; margin-bottom: 5px; color:#4a6d5c;">Tecnologia como aliada da saúde emocional</div>
+    <div class="subtitulo">Tecnologia como aliada da saúde emocional</div>
     <nav>
-      <a href="index.html" class="active">Início</a>
+      <a href="index.html" class="active" aria-current="page">Início</a>
       <a href="sobre.html">Sobre</a>
       <a href="suporte.html">Suporte</a>
       <a href="diario.html">Diário IA</a>
@@ -152,13 +205,15 @@
     </nav>
   </header>
   <main>
-    <div class="slogan">Cuidar da mente é cuidar do futuro.<br>Bem-vindo ao seu espaço seguro e acolhedor.</div>
+    <div class="slogan" aria-label="Slogan do CalmSpace">
+      Cuidar da mente é cuidar do futuro.<br />Bem-vindo ao seu espaço seguro e acolhedor.
+    </div>
     <p>
-      O CalmSpace é um aplicativo inovador que oferece suporte emocional imediato, diário com inteligência artificial, comunidade anônima e recursos para ajudar você a lidar com ansiedade, estresse e depressão. 
+      O CalmSpace é um aplicativo inovador que oferece suporte emocional imediato, diário com inteligência artificial, comunidade anônima e recursos para ajudar você a lidar com ansiedade, estresse e depressão.
     </p>
-    <div class="cta">
-      <a href="suporte.html">Quero conversar agora</a>
-      <a href="diario.html">Registrar meu dia</a>
+    <div class="cta" role="region" aria-label="Chamada para ação">
+      <a href="suporte.html" role="button">Quero conversar agora</a>
+      <a href="diario.html" role="button">Registrar meu dia</a>
     </div>
   </main>
   <footer>
